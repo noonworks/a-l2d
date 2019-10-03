@@ -1,10 +1,22 @@
 import { MotionIteratorBase } from './base';
 
+/**
+ * Random iterator.
+ * Returns random value in array.
+ *
+ * @typeparam T Type of array member.
+ */
 export class RandomIterator<T> extends MotionIteratorBase<T> {
   private _pool: number[];
   private _unique: boolean;
   private _counter: number;
 
+  /**
+   * Creates an instance of RandomIterator.
+   * @param  {T[]} items Original array.
+   * @param  {boolean} loop If true, returns value forever. If false, stop at the length of original array.
+   * @param  {boolean} unique If true, it behaves like "box gacha". If false, it returns random value.
+   */
   constructor(items: T[], loop: boolean, unique: boolean) {
     super(items, loop);
     this._pool = [];
@@ -12,6 +24,10 @@ export class RandomIterator<T> extends MotionIteratorBase<T> {
     this._counter = 0;
   }
 
+  /**
+   * Iterate array. Implements `Iterator<T>.next`.
+   * @return IteratorResult<T> Result of iteration.
+   */
   public next(): IteratorResult<T> {
     // no items
     if (this._items.length === 0) return { done: true, value: null };

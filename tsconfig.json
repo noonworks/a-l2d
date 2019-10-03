@@ -10,5 +10,17 @@
     /* Module Resolution Options */
     "moduleResolution": "node",
     "esModuleInterop": true
+  },
+  "typedocOptions": {
+    "mode": "file",
+    "out": "docs/develop",
+    "theme": "minimal",
+    "readme": "none",
+    "includeDeclarations": false,
+    "ignoreCompilerErrors": true,
+    "excludeExternals": true,
+    "excludeNotExported": true,
+    "excludePrivate": true,
+    "exclude": ["**/__tests__/**/*"]
   }
 }

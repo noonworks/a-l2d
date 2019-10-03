@@ -1,3 +1,8 @@
+/**
+ * Show error utility function.
+ * @param  {string} msg Error message.
+ * @param  {Error} [error] Error instance.
+ */
 export function showError(msg: string, error?: Error): void {
   let errmsg = '[A-L2D ERROR] ';
   if (msg.length > 0) {

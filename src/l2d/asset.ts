@@ -32,6 +32,10 @@ interface Motions {
   [name: string]: any;
 }
 
+/**
+ * @ignore
+ * Asset data interface.
+ */
 export interface Asset {
   url: string;
   source: AssetModel;
@@ -39,7 +43,14 @@ export interface Asset {
   motions: Motions;
 }
 
+/**
+ * Helper class to load asset.
+ */
 export class AssetLoader {
+  /**
+   * Load assets of models.
+   * @param  {string} src URL of asset JSON. See [[AssetModels]].
+   */
   public load(src: string): Promise<Asset[]> {
     return new Promise<Asset[]>(
       (
