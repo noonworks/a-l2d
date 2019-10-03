@@ -9,9 +9,9 @@ Live2D Cubism SDK For JavaScript と
 当コンポーネントに関する問い合わせを株式会社Live2Dにしないでください。
 お問い合わせは[@noonworks](https://twitter.com/noonworks)まで。
 
-## サンプル
+## デモ
 
-サンプルページをブラウザで開き、下のマーカーを写すとキャラクターが表示されます。
+[デモページ](https://noonworks.github.io/a-l2d/demo.html)をブラウザで開き、下のマーカーを写すとキャラクターが表示されます。
 
 <img src="https://noonworks.github.io/a-l2d/HIRO.png">
 
