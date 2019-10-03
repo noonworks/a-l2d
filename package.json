@@ -7,6 +7,7 @@
   "scripts": {
     "build": "webpack",
     "test": "jest --coverage",
+    "doc": "typedoc src",
     "serve": "superstatic docs",
     "precommit": "lint-staged"
   },
