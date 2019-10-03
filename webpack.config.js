@@ -5,7 +5,7 @@ module.exports = {
 
   entry: "./src/index.ts",
   output: {
-    path: `docs/js`,
+    path: `${__dirname}/docs/js`,
     filename: "a-l2d.js"
   },
   module: {
