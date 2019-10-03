@@ -1,0 +1,40 @@
+{
+  "models": [
+    {
+      "id": "Haruto",
+      "x": 0.7,
+      "y": 0.5,
+      "assets": {
+        "model3": "assets/Haruto/Haruto.model3.json",
+        "motion1": "assets/Haruto/Haruto_01.motion3.json",
+        "motion2": "assets/Haruto/Haruto_02.motion3.json",
+        "motion3": "assets/Haruto/Haruto_03.motion3.json",
+        "motion4": "assets/Haruto/Haruto_04.motion3.json",
+        "motion5": "assets/Haruto/Haruto_05.motion3.json",
+        "motion6": "assets/Haruto/Haruto_06.motion3.json",
+        "motion7": "assets/Haruto/Haruto_07.motion3.json",
+        "motion8": "assets/Haruto/Haruto_08.motion3.json",
+        "motion9": "assets/Haruto/Haruto_09.motion3.json"
+      },
+      "motions": {
+        "basic": {
+          "order": "random",
+          "values": [
+            "motion2",
+            "motion3",
+            "motion4",
+            "motion5",
+            "motion6",
+            "motion7",
+            "motion8",
+            "motion9"
+          ]
+        },
+        "click": {
+          "order": "random",
+          "values": ["motion1"]
+        }
+      }
+    }
+  ]
+}
