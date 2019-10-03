@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    /* Basic Options */
+    "target": "es5",
+    "module": "es2015",
+    "lib": ["es2019", "dom"],
+    "sourceMap": false,
+    "outDir": "./dist",
+    /* Strict Type-Checking Options */
+    "strict": true,
+    /* Module Resolution Options */
+    "moduleResolution": "node",
+    "esModuleInterop": true
+  }
+}

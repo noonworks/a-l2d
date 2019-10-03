@@ -1,0 +1,16 @@
+{
+  "extensions.showRecommendationsOnlyOnDemand": false,
+  "editor.formatOnSave": true,
+  "javascript.format.enable": false,
+  "prettier.eslintIntegration": true,
+  "prettier.disableLanguages": ["vue", "markdown"],
+  // eslint
+  "eslint.autoFixOnSave": true,
+  "eslint.validate": [
+    {
+      "language": "typescript",
+      "autoFix": true
+    }
+  ],
+  "eslint.alwaysShowStatus": true
+}
