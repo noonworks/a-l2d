@@ -13,7 +13,7 @@
   },
   "typedocOptions": {
     "mode": "file",
-    "out": "docs/docs",
+    "out": "docs/develop",
     "theme": "minimal",
     "readme": "none",
     "includeDeclarations": false,
