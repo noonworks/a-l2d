@@ -13,7 +13,7 @@ Live2D Cubism SDK For JavaScript と
 
 サンプルページをブラウザで開き、下のマーカーを写すとキャラクターが表示されます。
 
-<img src="https://github.com/noonworks/a-l2d/HIRO.png">
+<img src="https://noonworks.github.io/a-l2d/HIRO.png">
 
 ## ライセンス
 
