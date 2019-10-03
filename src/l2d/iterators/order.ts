@@ -1,13 +1,28 @@
 import { MotionIteratorBase } from './base';
 
+/**
+ * Ordered iterator.
+ * Returns ordered value in array.
+ *
+ * @typeparam T Type of array member.
+ */
 export class OrderIterator<T> extends MotionIteratorBase<T> {
   private _index: number;
 
+  /**
+   * Creates an instance of OrderIterator.
+   * @param  {T[]} items Original array.
+   * @param  {boolean} loop If true, returns value forever. If false, stop at the length of original array.
+   */
   constructor(items: T[], loop: boolean) {
     super(items, loop);
     this._index = 0;
   }
 
+  /**
+   * Iterate array. Implements `Iterator<T>.next`.
+   * @return IteratorResult<T> Result of iteration.
+   */
   public next(): IteratorResult<T> {
     // no items
     if (this._items.length === 0) return { done: true, value: null };

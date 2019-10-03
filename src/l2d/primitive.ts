@@ -6,8 +6,15 @@ const extendDeep = AFRAME.utils.extendDeep;
 // This makes the material component a default component and maps all the base material properties.
 const meshMixin = AFRAME.primitives.getMeshMixin();
 
+/**
+ * @ignore
+ */
 export const PRIMITIVE_NAME = 'a-' + COMPONENT_NAME;
 
+/**
+ * @ignore
+ * Primitive object to register to A-Frame.
+ */
 export const L2D_PRIMITIVE: PrimitiveDefinition = extendDeep({}, meshMixin, {
   // Preset default components.
   // These components and component properties will be attached to the entity out-of-the-box.

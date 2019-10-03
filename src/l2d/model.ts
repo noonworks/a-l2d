@@ -6,16 +6,25 @@ import { MotionIteratorBase } from './iterators/base';
 
 declare const LIVE2DCUBISMFRAMEWORK: any;
 
+/**
+ * Wrapper class of Live2D model.
+ */
 export class Model {
   private _asset: Asset;
   private _model: any;
   private _basicItr: MotionIteratorBase<string>;
   private _clickItr: MotionIteratorBase<string>;
 
+  /**
+   * Live2D model instance.
+   */
   public get model(): any {
     return this._model;
   }
 
+  /**
+   * Is  motion finished or not.
+   */
   public get motionFinished(): boolean {
     const motion = this._model.animator.getLayer('motion');
     return motion && motion.currentTime >= motion.currentAnimation.duration;
@@ -33,14 +42,24 @@ export class Model {
     this.motionLayer.play(this._asset.motions[r.value]);
   }
 
+  /**
+   * Play basic motion.
+   */
   public playBasic(): void {
     this.doMotion(this._basicItr);
   }
 
+  /**
+   * Play clicked motion.
+   */
   public playClick(): void {
     this.doMotion(this._clickItr);
   }
 
+  /**
+   * Creates an instance of Model.
+   * @param  {Asset} asset Asset data of the model.
+   */
   constructor(asset: Asset) {
     this._asset = asset;
     this._model = this._asset.model;
@@ -75,6 +94,11 @@ export class Model {
   }
 }
 
+/**
+ * Append models to `PIXI.Application.stage`.
+ * @param  {Model[]} models [[Model]]s to append.
+ * @param  {PIXI.Application} pixiapp PIXI.Application` to append.
+ */
 export function appendModels(models: Model[], pixiapp: PIXI.Application): void {
   for (const mw of models) {
     pixiapp.stage.addChild(mw.model);

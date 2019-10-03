@@ -5,6 +5,9 @@ import { appendModels, Model } from './model';
 import { AssetLoader, Asset } from './asset';
 import { showError } from './util';
 
+/**
+ * @ignore
+ */
 export const COMPONENT_NAME = 'l2d';
 
 interface L2DSchema {
@@ -13,7 +16,7 @@ interface L2DSchema {
   textureHeight: number;
 }
 
-export interface L2DPlaneComponent extends Partial<Component<L2DSchema>> {
+interface L2DPlaneComponent extends Partial<Component<L2DSchema>> {
   _marker: Entity<any> | null;
   _mesh: THREE.Object3D | null;
   _models: Model[];
@@ -34,6 +37,10 @@ export interface L2DPlaneComponent extends Partial<Component<L2DSchema>> {
   _updateAsset: (oldData: L2DSchema) => void;
 }
 
+/**
+ * @ignore
+ * Component object to register to A-Frame.
+ */
 export const L2D_COMPONENT: L2DPlaneComponent = {
   _marker: null,
   _mesh: null,
