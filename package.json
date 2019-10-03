@@ -1,0 +1,17 @@
+{
+  "name": "a-l2d",
+  "version": "1.0.0-alpha.1",
+  "author": "@noonworks",
+  "license": "MIT",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noonworks/a-l2d.git"
+  },
+  "homepage": "https://github.com/noonworks/a-l2d#readme"
+}
