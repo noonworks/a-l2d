@@ -29,8 +29,6 @@ interface L2DPlaneComponent extends Partial<Component<L2DSchema>> {
   init: () => void;
   update: (oldData: L2DSchema) => void;
   tick: () => void;
-  // public methods
-  setModels: (models: Model[]) => void;
   // private methods
   _initPixiApp: () => void;
   _setTextureSize: () => void;
@@ -47,19 +45,11 @@ export const L2D_COMPONENT: L2DPlaneComponent = {
   _models: [],
   _orientationchanged: false,
   _pixiapp: null,
-  // setting members
   multiple: true,
   schema: {
     src: { type: 'asset' },
     textureWidth: { type: 'int', default: 512 },
     textureHeight: { type: 'int', default: 512 }
-  },
-  // public method
-  setModels: function(models: Model[]): void {
-    this._models = models;
-    if (!this._pixiapp) throw new Error('Pixiapp [pixiapp] not found.');
-    appendModels(this._models, this._pixiapp);
-    this._setTextureSize();
   },
 
   _initPixiApp: function(): void {
