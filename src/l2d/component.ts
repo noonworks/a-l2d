@@ -23,7 +23,11 @@ interface L2DPlaneComponent extends Partial<Component<L2DSchema>> {
   _orientationchanged: boolean;
   _pixiapp: PIXI.Application | null;
   // component config members
-  schema: {};
+  schema: {
+    src: { type: 'asset' };
+    textureWidth: { type: 'int'; default: 512 };
+    textureHeight: { type: 'int'; default: 512 };
+  };
   multiple: boolean;
   // lifecycle methods
   init: () => void;
