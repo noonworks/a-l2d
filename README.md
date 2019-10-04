@@ -65,8 +65,7 @@ PixiJS は MIT License で提供されています。
 
 当コンポーネントに含まれる上記以外のコードは MIT License で提供されています。
 
-- MIT License
+- [MIT License](https://github.com/noonworks/a-l2d/blob/master/LICENSE)
   - a-l2d.js
   - srcフォルダ以下のソースコード
-  - index.html
-  - その他、設定ファイルやドキュメントファイル
+  - その他、設定ファイルやドキュメントファイル等
