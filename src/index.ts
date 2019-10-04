@@ -1,8 +1,3 @@
-import { register } from './l2d';
-import { showError } from './l2d/util';
+import { AL2D } from './l2d';
 
-try {
-  register();
-} catch (error) {
-  showError('', error);
-}
+new AL2D().init();

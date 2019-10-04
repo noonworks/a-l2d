@@ -3,7 +3,6 @@ import * as THREE from 'three';
 import * as PIXI from 'pixi.js';
 import { appendModels, Model } from './model';
 import { AssetLoader, Asset } from './asset';
-import { showError } from './util';
 
 /**
  * @ignore
@@ -16,21 +15,46 @@ interface L2DSchema {
   textureHeight: number;
 }
 
-interface L2DPlaneComponent extends Partial<Component<L2DSchema>> {
+/**
+ * Public properties of L2D Component.
+ */
+export interface L2DComponentPublicMember {
+  /**
+   * Loading state of the component.
+   *
+   * - `initialized` boolean : Initialized or not.
+   * - `assetLoading` : Asset loading state.
+   *   - `finished` boolean : Finished or not.
+   *   - `error` Error | null : Error on asset loading.
+   */
+  loadState: {
+    initialized: boolean;
+    assetLoading: {
+      finished: boolean;
+      error: Error | null;
+    };
+  };
+}
+
+interface L2DPlaneComponent
+  extends Partial<Component<L2DSchema>>,
+    L2DComponentPublicMember {
   _marker: Entity<any> | null;
   _mesh: THREE.Object3D | null;
   _models: Model[];
   _orientationchanged: boolean;
   _pixiapp: PIXI.Application | null;
   // component config members
-  schema: {};
+  schema: {
+    src: { type: 'asset' };
+    textureWidth: { type: 'int'; default: 512 };
+    textureHeight: { type: 'int'; default: 512 };
+  };
   multiple: boolean;
   // lifecycle methods
   init: () => void;
   update: (oldData: L2DSchema) => void;
   tick: () => void;
-  // public methods
-  setModels: (models: Model[]) => void;
   // private methods
   _initPixiApp: () => void;
   _setTextureSize: () => void;
@@ -47,19 +71,18 @@ export const L2D_COMPONENT: L2DPlaneComponent = {
   _models: [],
   _orientationchanged: false,
   _pixiapp: null,
-  // setting members
   multiple: true,
   schema: {
     src: { type: 'asset' },
     textureWidth: { type: 'int', default: 512 },
     textureHeight: { type: 'int', default: 512 }
   },
-  // public method
-  setModels: function(models: Model[]): void {
-    this._models = models;
-    if (!this._pixiapp) throw new Error('Pixiapp [pixiapp] not found.');
-    appendModels(this._models, this._pixiapp);
-    this._setTextureSize();
+  loadState: {
+    initialized: false,
+    assetLoading: {
+      finished: false,
+      error: null
+    }
   },
 
   _initPixiApp: function(): void {
@@ -116,6 +139,9 @@ export const L2D_COMPONENT: L2DPlaneComponent = {
     (el.object3D as any).front = new THREE.Object3D();
     (el.object3D as any).front.position.set(0, 0, -1);
     el.object3D.add((el.object3D as any).front);
+    // set state
+    this.loadState = this.loadState;
+    this.loadState.initialized = true;
   },
 
   _setTextureSize: function(): void {
@@ -142,28 +168,35 @@ export const L2D_COMPONENT: L2DPlaneComponent = {
   _updateAsset: function(oldData: L2DSchema): void {
     if (oldData && this.data && oldData.src == this.data.src) return;
     if (!this.data) return;
+    this.loadState.assetLoading.finished = false;
+    this.loadState.assetLoading.error = null;
     new AssetLoader()
       .load(this.data.src)
       .then((assets: Asset[]): void => {
+        this.loadState.assetLoading.finished = true;
         if (!this.data) {
-          showError('Could not find data.src.');
+          this.loadState.assetLoading.error = new Error(
+            'Could not find data.src.'
+          );
           return;
         }
         this._models = assets.map(asset => new Model(asset));
         this._initPixiApp();
         if (!this._pixiapp) {
-          showError('Pixiapp [pixiapp] not found.');
+          this.loadState.assetLoading.error = new Error(
+            'Pixiapp [pixiapp] not found.'
+          );
           return;
         }
         try {
           appendModels(this._models, this._pixiapp);
           this._setTextureSize();
         } catch (error) {
-          showError('Could not apply assets.', error);
+          this.loadState.assetLoading.error = error;
         }
       })
       .catch(reason => {
-        showError('Could not load assets.', reason);
+        this.loadState.assetLoading.error = reason;
       });
   },
 

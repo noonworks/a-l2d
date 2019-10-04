@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>AssetModels | a-l2d</title>
+	<title>L2DComponentPublicMember | a-l2d</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style type="text/css">/*! normalize.css v1.1.3 | MIT License | git.io/normalize */
@@ -2399,16 +2399,16 @@ img {
 		<li class=" tsd-kind-interface">
 			<a href="assetmodel.html" class="tsd-kind-icon">Asset<wbr>Model</a>
 		</li>
-		<li class="current tsd-kind-interface">
+		<li class=" tsd-kind-interface">
 			<a href="assetmodels.html" class="tsd-kind-icon">Asset<wbr>Models</a>
+		</li>
+		<li class="current tsd-kind-interface">
+			<a href="l2dcomponentpublicmember.html" class="tsd-kind-icon">L2DComponent<wbr>Public<wbr>Member</a>
 			<ul>
 				<li class=" tsd-kind-property tsd-parent-kind-interface">
-					<a href="assetmodels.html#models" class="tsd-kind-icon">models</a>
+					<a href="l2dcomponentpublicmember.html#loadstate" class="tsd-kind-icon">load<wbr>State</a>
 				</li>
 			</ul>
-		</li>
-		<li class=" tsd-kind-interface">
-			<a href="l2dcomponentpublicmember.html" class="tsd-kind-icon">L2DComponent<wbr>Public<wbr>Member</a>
 		</li>
 		<li class=" tsd-kind-interface">
 			<a href="motion.html" class="tsd-kind-icon">Motion</a>
@@ -2438,16 +2438,15 @@ img {
 		<section class="tsd-panel tsd-comment">
 			<div class="tsd-comment tsd-typography">
 				<div class="lead">
-					<p>Asset data of models.</p>
+					<p>Public properties of L2D Component.</p>
 				</div>
-				<p>A component can contain multiple <a href="assetmodel.html">AssetModel</a>s.</p>
 			</div>
 		</section>
 		<section class="tsd-panel tsd-hierarchy">
 			<h3>Hierarchy</h3>
 			<ul class="tsd-hierarchy">
 				<li>
-					<span class="target">AssetModels</span>
+					<span class="target">L2DComponentPublicMember</span>
 				</li>
 			</ul>
 		</section>
@@ -2458,7 +2457,7 @@ img {
 					<section class="tsd-index-section ">
 						<h3>Properties</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="assetmodels.html#models" class="tsd-kind-icon">models</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="l2dcomponentpublicmember.html#loadstate" class="tsd-kind-icon">load<wbr>State</a></li>
 						</ul>
 					</section>
 				</div>
@@ -2467,18 +2466,31 @@ img {
 		<section class="tsd-panel-group tsd-member-group ">
 			<h2>Properties</h2>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-				<a name="models" class="tsd-anchor"></a>
-				<h3>models</h3>
-				<div class="tsd-signature tsd-kind-icon">models<span class="tsd-signature-symbol">:</span> <a href="assetmodel.html" class="tsd-signature-type">AssetModel</a><span class="tsd-signature-symbol">[]</span></div>
+				<a name="loadstate" class="tsd-anchor"></a>
+				<h3>load<wbr>State</h3>
+				<div class="tsd-signature tsd-kind-icon">load<wbr>State<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/noonworks/a-l2d/blob/1be12ea/src/l2d/interface.ts#L84">l2d/interface.ts:84</a></li>
+						<li>Defined in <a href="https://github.com/noonworks/a-l2d/blob/1be12ea/src/l2d/component.ts#L30">l2d/component.ts:30</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p><a href="assetmodel.html">AssetModel</a>s to append to a component.</p>
+						<p>Loading state of the component.</p>
 					</div>
+					<ul>
+						<li><code>initialized</code> boolean : Initialized or not.</li>
+						<li><code>assetLoading</code> : Asset loading state.<ul>
+								<li><code>finished</code> boolean : Finished or not.</li>
+								<li><code>error</code> Error | null : Error on asset loading.</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="tsd-type-declaration">
+					<h4>Type declaration</h4>
+					<ul class="tsd-parameters">
+					</ul>
 				</div>
 			</section>
 		</section>
