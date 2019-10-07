@@ -4,7 +4,7 @@ module.exports = (env, argv) => {
   return {
     devtool: devMode ? 'nosources-source-map' : 'none',
 
-    entry: "./src/index.ts",
+    entry: "./src/a-l2d.ts",
     output: {
       path: `${__dirname}/docs/js`,
       filename: "a-l2d.js"
