@@ -5,7 +5,8 @@
   "license": "MIT",
   "description": "",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --mode production",
+    "build:dev": "webpack --mode development",
     "test": "jest --coverage",
     "doc": "typedoc src",
     "serve": "superstatic docs",
