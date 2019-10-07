@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    /* Basic Options */
+    "target": "es6",
+    "module": "es2015",
+    "lib": ["es2019", "dom"],
+    "outDir": "dist",
+    "sourceMap": false,
+    /* Strict Type-Checking Options */
+    "strict": true,
+    /* Module Resolution Options */
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    /* Create d.ts */
+    "declaration": true,
+    "declarationDir": "dist/type"
+  },
+  "include": ["src/l2d/**/*"]
+}
