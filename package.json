@@ -4,19 +4,26 @@
   "author": "@noonworks",
   "license": "MIT",
   "description": "",
-  "scripts": {
-    "build": "webpack",
-    "test": "jest --coverage",
-    "doc": "typedoc src",
-    "serve": "superstatic docs",
-    "precommit": "lint-staged"
-  },
   "private": true,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/noonworks/a-l2d.git"
   },
   "homepage": "https://github.com/noonworks/a-l2d#readme",
+  "scripts": {
+    "build": "webpack --mode production",
+    "build:dev": "webpack --mode development",
+    "build:lib": "tsc -p tsconfig.lib.json",
+    "test": "jest --coverage",
+    "doc": "typedoc src",
+    "serve": "superstatic docs",
+    "precommit": "lint-staged"
+  },
   "devDependencies": {
     "@types/aframe": "^0.8.3",
     "@types/jest": "^24.0.18",
@@ -45,7 +52,7 @@
     }
   },
   "lint-staged": {
-    "*.ts": [
+    "src/**/*.ts": [
       "eslint",
       "git add"
     ]
