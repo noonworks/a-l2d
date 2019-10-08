@@ -18,7 +18,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "build:dev": "webpack --mode development",
-    "build:lib": "tsc -p tsconfig.lib.json",
+    "build:lib": "webpack --mode production --env.lib",
     "test": "jest --coverage",
     "doc": "typedoc src",
     "serve": "superstatic docs",
