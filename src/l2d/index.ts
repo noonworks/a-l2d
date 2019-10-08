@@ -139,18 +139,24 @@ export class AL2D {
         const checkCmp = (): void => {
           try {
             const components = getComponents(document);
-            for (const cmp of components) {
-              if (!cmp.loadState.assetLoading.finished) {
-                timeout--;
-                if (timeout < 0) {
-                  const e = new Error('Timeout for asset loading.');
-                  if (this._opt.showAlert) showError(e);
-                  reject(e);
-                  return;
-                }
+            const finished =
+              components.length > 0 &&
+              components.reduce(
+                (f, c) => f && c.loadState.assetLoading.finished,
+                true
+              );
+            if (!finished) {
+              timeout--;
+              if (timeout < 0) {
+                const e = new Error(
+                  'Timeout. (' + this._opt.timeout + ' msec)'
+                );
+                if (this._opt.showAlert) showError(e);
+                reject(e);
+              } else {
                 window.setTimeout(checkCmp, 100);
-                return;
               }
+              return;
             }
             if (showError) {
               const errors = components
