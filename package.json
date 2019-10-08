@@ -5,10 +5,11 @@
   "license": "MIT",
   "description": "",
   "private": true,
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/a-l2d-lib.js",
+  "types": "dist/type/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "repository": {
     "type": "git",
@@ -17,12 +18,15 @@
   "homepage": "https://github.com/noonworks/a-l2d#readme",
   "scripts": {
     "build": "webpack --mode production",
-    "build:dev": "webpack --mode development",
-    "build:lib": "tsc -p tsconfig.lib.json",
+    "dist": "run-s build _build:lib _copy _doc",
     "test": "jest --coverage",
-    "doc": "typedoc src",
+    "clean": "rimraf dist",
     "serve": "superstatic docs",
-    "precommit": "lint-staged"
+    "_build:dev": "webpack --mode development",
+    "_build:lib": "webpack --mode production --env.lib",
+    "_copy": "cpx docs/js/a-l2d.js dist/",
+    "_doc": "typedoc src",
+    "_precommit": "lint-staged"
   },
   "devDependencies": {
     "@types/aframe": "^0.8.3",
@@ -30,14 +34,17 @@
     "@types/three": "^0.103.2",
     "@typescript-eslint/eslint-plugin": "^2.3.2",
     "@typescript-eslint/parser": "^2.3.2",
+    "cpx": "^1.5.0",
     "eslint": "^6.5.1",
     "eslint-config-prettier": "^6.3.0",
     "eslint-plugin-prettier": "^3.1.1",
     "husky": "^3.0.8",
     "jest": "^24.9.0",
     "lint-staged": "^9.4.1",
+    "npm-run-all": "^4.1.5",
     "pixi.js": "^5.1.5",
     "prettier": "^1.18.2",
+    "rimraf": "^3.0.0",
     "superstatic": "^6.0.4",
     "ts-jest": "^24.1.0",
     "ts-loader": "^6.2.0",
@@ -48,7 +55,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run precommit"
+      "pre-commit": "npm run _precommit"
     }
   },
   "lint-staged": {
