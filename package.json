@@ -19,7 +19,8 @@
   "homepage": "https://github.com/noonworks/a-l2d#readme",
   "scripts": {
     "build": "_build:_web",
-    "dist": "run-p _build:web _build:_lib _build:cjs _build:esm _doc",
+    "dist": "run-p _build:web _build:_lib _build:cjs _build:esm",
+    "doc": "typedoc src",
     "test": "jest --coverage",
     "clean": "rimraf dist",
     "serve": "superstatic docs",
@@ -29,7 +30,6 @@
     "_build:cjs": "tsc -p tsconfig.lib.json --module commonjs --outDir ./dist/cjs --declaration --declarationDir ./dist/type",
     "_build:esm": "tsc -p tsconfig.lib.json --module es2015 --outDir ./dist/esm",
     "_copy": "cpx docs/js/a-l2d.js dist/",
-    "_doc": "typedoc src",
     "_precommit": "lint-staged"
   },
   "devDependencies": {
