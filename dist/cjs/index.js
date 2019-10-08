@@ -123,20 +123,20 @@ var AL2D = /** @class */ (function () {
             var checkCmp = function () {
                 try {
                     var components = getComponents(document);
-                    for (var _i = 0, components_1 = components; _i < components_1.length; _i++) {
-                        var cmp = components_1[_i];
-                        if (!cmp.loadState.assetLoading.finished) {
-                            timeout--;
-                            if (timeout < 0) {
-                                var e = new Error('Timeout for asset loading.');
-                                if (_this._opt.showAlert)
-                                    showError(e);
-                                reject(e);
-                                return;
-                            }
-                            window.setTimeout(checkCmp, 100);
-                            return;
+                    var finished = components.length > 0 &&
+                        components.reduce(function (f, c) { return f && c.loadState.assetLoading.finished; }, true);
+                    if (!finished) {
+                        timeout--;
+                        if (timeout < 0) {
+                            var e = new Error('Timeout. (' + _this._opt.timeout + ' msec)');
+                            if (_this._opt.showAlert)
+                                showError(e);
+                            reject(e);
                         }
+                        else {
+                            window.setTimeout(checkCmp, 100);
+                        }
+                        return;
                     }
                     if (showError) {
                         var errors = components
