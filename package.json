@@ -17,12 +17,15 @@
   "homepage": "https://github.com/noonworks/a-l2d#readme",
   "scripts": {
     "build": "webpack --mode production",
-    "build:dev": "webpack --mode development",
-    "build:lib": "webpack --mode production --env.lib",
+    "dist": "run-s build _build:lib _copy _doc",
     "test": "jest --coverage",
-    "doc": "typedoc src",
+    "clean": "rimraf dist",
     "serve": "superstatic docs",
-    "precommit": "lint-staged"
+    "_build:dev": "webpack --mode development",
+    "_build:lib": "webpack --mode production --env.lib",
+    "_copy": "cpx docs/js/a-l2d.js dist/",
+    "_doc": "typedoc src",
+    "_precommit": "lint-staged"
   },
   "devDependencies": {
     "@types/aframe": "^0.8.3",
@@ -51,7 +54,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run precommit"
+      "pre-commit": "npm run _precommit"
     }
   },
   "lint-staged": {
