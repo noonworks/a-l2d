@@ -7,7 +7,7 @@ module.exports = (env, argv) => {
     buildLib ? {
       path: `${__dirname}/dist`,
       filename: 'a-l2d-lib.js',
-      library: 'AL2D',
+      library: 'AL2DLIB',
       libraryTarget: 'var'
     } : {
       path: `${__dirname}/docs/js`,
