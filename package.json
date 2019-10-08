@@ -5,10 +5,11 @@
   "license": "MIT",
   "description": "",
   "private": true,
-  "main": "dist/index.js",
+  "main": "dist/a-l2d-lib.js",
   "types": "dist/type/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "repository": {
     "type": "git",
