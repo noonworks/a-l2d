@@ -3,7 +3,7 @@
 Live2D Cubism SDK For JavaScript と
 [AR.js](https://github.com/jeromeetienne/AR.js)
 を組み合わせた
-[A-Frame](https://aframe.io/) のコンポーネントです。
+[A-Frame](https://aframe.io/) 用のコンポーネントです。
 
 **当コンポーネントの作者は、株式会社Live2Dとは関係ありません。**
 当コンポーネントに関する問い合わせを株式会社Live2Dにしないでください。
@@ -14,6 +14,10 @@ Live2D Cubism SDK For JavaScript と
 [デモページ](https://noonworks.github.io/a-l2d/demo.html)をブラウザで開き、下のマーカーを写すとキャラクターが表示されます。
 
 <img src="https://noonworks.github.io/a-l2d/HIRO.png">
+
+## 制限事項
+
+- クリッピング（マスク）は使用できません。
 
 ## ライセンス
 
