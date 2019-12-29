@@ -158,7 +158,7 @@ export class AL2D {
               }
               return;
             }
-            if (showError) {
+            if (this._opt.showAlert) {
               const errors = components
                 .map(cmp => cmp.loadState.assetLoading.error)
                 .filter(e => e != null) as Error[];
