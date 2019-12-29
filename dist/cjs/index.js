@@ -138,7 +138,7 @@ var AL2D = /** @class */ (function () {
                         }
                         return;
                     }
-                    if (showError) {
+                    if (_this._opt.showAlert) {
                         var errors = components
                             .map(function (cmp) { return cmp.loadState.assetLoading.error; })
                             .filter(function (e) { return e != null; });

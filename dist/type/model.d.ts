@@ -10,12 +10,12 @@ export declare class Model {
     /**
      * Live2D model instance.
      */
-    readonly model: any;
+    get model(): any;
     /**
      * Is  motion finished or not.
      */
-    readonly motionFinished: boolean;
-    private readonly motionLayer;
+    get motionFinished(): boolean;
+    private get motionLayer();
     private doMotion;
     /**
      * Play basic motion.

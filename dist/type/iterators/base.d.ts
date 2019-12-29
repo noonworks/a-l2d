@@ -15,11 +15,11 @@ export declare abstract class MotionIteratorBase<T> implements Iterator<T> {
     /**
      * Length of original array.
      */
-    readonly length: number;
+    get length(): number;
     /**
      * The original array.
      */
-    readonly items: T[];
+    get items(): T[];
     /**
      * Creates an instance of MotionIteratorBase.
      * @param  {T[]} items Original array.

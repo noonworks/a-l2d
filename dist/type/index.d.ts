@@ -38,7 +38,7 @@ export declare class AL2D {
     /**
      * Error that occured on regster compoentn and primitive.
      */
-    readonly registerError: Error | null;
+    get registerError(): Error | null;
     /**
      * Creates an instance of AL2D.
      * @param {Partial<AL2DOption>} [option] See [[AL2DOption]].
