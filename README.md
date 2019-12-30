@@ -1,5 +1,7 @@
 ﻿# A-L2D
 
+[使い方の説明書はこちら](https://github.com/noonworks/a-l2d/wiki/%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB)
+
 Live2D Cubism SDK For JavaScript と
 [AR.js](https://github.com/jeromeetienne/AR.js)
 を組み合わせた
@@ -13,7 +15,7 @@ Live2D Cubism SDK For JavaScript と
 
 [デモページ](https://noonworks.github.io/a-l2d/demo.html)をブラウザで開き、下のマーカーを写すとキャラクターが表示されます。
 
-<img src="https://noonworks.github.io/a-l2d/HIRO.png">
+![デモ用マーカー画像](https://noonworks.github.io/a-l2d/HIRO.png)
 
 ## 制限事項
 
